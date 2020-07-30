@@ -33,6 +33,12 @@ class _FooterWidgetState extends State<FooterWidget> {
           SizedBox(height: 20.0,),
           _atributionIcons(),
           SizedBox(height: 20.0,),
+          _textIconAtributionUsed(
+            'Adib Sulthon',
+            'https://www.flaticon.com/authors/adib-sulthon',
+            'https://www.flaticon.com'
+          ),
+           SizedBox(height: 20.0,),
           _nameOfCreator(),
           SizedBox(height: 40.0,)
         ],
@@ -122,6 +128,72 @@ class _FooterWidgetState extends State<FooterWidget> {
               onTap: () => launch(link),
               child: Text(
                 name,
+                textAlign: TextAlign.start,
+                style: textColorStyle,
+                
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+  }
+
+  Widget _textIconAtributionUsed(String nameDesigner, String linkProfile, String link){
+
+    final textStyle = TextStyle(
+            fontSize: 16.0,
+            color: Colors.grey[400],
+            fontWeight: FontWeight.w400,
+            fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily
+          );
+
+    final textColorStyle = TextStyle(
+            fontSize: 16.0,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily,
+            decoration: TextDecoration.underline,
+            decorationColor: Colors.blueGrey[500]
+          );
+                
+
+    return Container(
+      margin: EdgeInsets.all(4.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SelectableText(
+            'Icon made by ',
+            textAlign: TextAlign.start,
+            style: textStyle,
+          ),
+           MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () => launch(linkProfile),
+              child: Text(
+                nameDesigner,
+                textAlign: TextAlign.start,
+                style: textColorStyle,
+                
+              ),
+            ),
+          ),
+          SelectableText(
+            ' from ',
+            textAlign: TextAlign.start,
+            style: textStyle,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () => launch(link),
+              child: Text(
+                'FlatIcon',
                 textAlign: TextAlign.start,
                 style: textColorStyle,
                 

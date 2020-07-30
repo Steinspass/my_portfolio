@@ -10,6 +10,7 @@ import 'package:my_portfolio/widgets/contact_widget.dart';
 import 'package:my_portfolio/widgets/footer_widget.dart';
 import 'package:my_portfolio/widgets/menu_widget.dart';
 import 'package:my_portfolio/widgets/my_working_apps.dart';
+import 'package:my_portfolio/widgets/services_widget.dart';
 import 'package:my_portfolio/widgets/skill_widget.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -76,14 +77,18 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
                 ),
                 _wrapScrollTag(
                   index: 2,
-                  child: MySkillWidget()
+                  child: ServicesWidget()
                 ),
                 _wrapScrollTag(
                   index: 3,
-                  child: AboutMeWidget()
+                  child: MySkillWidget()
                 ),
                 _wrapScrollTag(
                   index: 4,
+                  child: AboutMeWidget()
+                ),
+                _wrapScrollTag(
+                  index: 5,
                   child: ContactMeWidget()
                 ),
                 FooterWidget()

@@ -139,7 +139,7 @@ class _MySkillWidgetState extends State<MySkillWidget> {
       // crossAxisAlignment: CrossAxisAlignment.center,
       // mainAxisSize: MainAxisSize.min,
       children: [
-        _titleOfSkill(' Working knowledge '),
+        _titleOfSkill(' Working knowledge ', Colors.greenAccent[400]),
         SizedBox(height: 20.0,),
         _itemSkillKnow('Flutter', Colors.greenAccent[400]),
         _itemSkillKnow('Dart', Colors.greenAccent[400]),
@@ -158,7 +158,7 @@ class _MySkillWidgetState extends State<MySkillWidget> {
       // mainAxisSize: MainAxisSize.min,
       // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _titleOfSkill(' Know something about '),
+        _titleOfSkill(' Know something about ', Colors.tealAccent[700]),
         SizedBox(height: 20.0,),
         _itemSkillKnow('Java', Colors.tealAccent[700]),
         _itemSkillKnow('Python', Colors.tealAccent[700]),
@@ -177,7 +177,7 @@ class _MySkillWidgetState extends State<MySkillWidget> {
       // mainAxisSize: MainAxisSize.min,
       // crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _titleOfSkill(' Want to learn '),
+        _titleOfSkill(' Want to learn ', Colors.deepPurpleAccent[400]),
         SizedBox(height: 20.0,),
         _itemSkillKnow('React Native', Colors.deepPurpleAccent[400]),
         _itemSkillKnow('MongoDB', Colors.deepPurpleAccent[400]),
@@ -191,7 +191,7 @@ class _MySkillWidgetState extends State<MySkillWidget> {
     );
   }
 
-  Widget _titleOfSkill(String title) {
+  Widget _titleOfSkill(String title, Color color) {
     return Align(
       alignment: Alignment.center,
       child: SelectableText(
@@ -202,7 +202,9 @@ class _MySkillWidgetState extends State<MySkillWidget> {
           fontWeight: FontWeight.w700,
           fontStyle: FontStyle.italic,
           shadows: getGlitchShadowText(context),
-          letterSpacing: 4.0
+          letterSpacing: 4.0,
+          decoration: TextDecoration.underline,
+          decorationColor: color
         ),
       ),
     );
