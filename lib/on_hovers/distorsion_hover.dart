@@ -39,32 +39,29 @@ class _DistorsionOnHoverState extends State<DistorsionOnHover> {
 
    Widget _titleNameDistorsion() {
     return Center(
-      child: SizedBox(
-        width: 1000.0,
-        child: FadeAnimatedTextKit(
-          text: [
-            " N41m 9r1d1 70947e6r4 ",
-            " #@1= 9<1}1 70947>6<4 ",
-            " N41m 9r1d1 70947e6r4 ",
-            " Naim Dridi Podadera "
-          ],
-          // speed: Duration(milliseconds: 5),
-          duration: Duration(milliseconds: 50),
-          pause: Duration(milliseconds: 10),
-          isRepeatingAnimation: false,
-          repeatForever: false,
-          textAlign: TextAlign.center,
-          alignment: AlignmentDirectional.centerStart,
-            textStyle: TextStyle(
-              fontSize: context.isMobile ? 50 : 100,
-              color: Colors.white,
-              letterSpacing: context.isMobile ? -0.5 : -1.5,
-              fontWeight: FontWeight.w900,
-              shadows: _getGlitchShadowText()
-            ),
-          onFinished: () => _mouseEnter(false),    
-          ),
-      ),
+      child: FadeAnimatedTextKit(
+        text: [
+          " N41m 9r1d1 70947e6r4 ",
+          " #@1= 9<1}1 70947>6<4 ",
+          " N41m 9r1d1 70947e6r4 ",
+          " Naim Dridi Podadera "
+        ],
+        // speed: Duration(milliseconds: 5),
+        duration: Duration(milliseconds: 50),
+        pause: Duration(milliseconds: 10),
+        isRepeatingAnimation: false,
+        repeatForever: false,
+        textAlign: TextAlign.center,
+        alignment: AlignmentDirectional.centerStart,
+          textStyle: TextStyle(
+          fontSize: context.isMobile ? 40 : 100,
+          color: Colors.white,
+          letterSpacing: context.isMobile ? -0.5 : -1.5,
+          fontWeight: FontWeight.w700,
+          shadows: _getGlitchShadowText()
+        ),
+        onFinished: () => _mouseEnter(false),    
+        ),
     );
   }
 

@@ -43,7 +43,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
           style: TextStyle(
             fontSize: context.isMobile ? 80 : 160,
             letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
             color: Colors.grey[800].withOpacity(0.3)
           ),
         ),
@@ -116,7 +116,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
                fontSize: context.isMobile ? 30 : 60,
                color: Colors.white,
                letterSpacing: context.isMobile ? -0.5 : -1.5,
-               fontWeight: FontWeight.w800,
+               fontWeight: FontWeight.w600,
                shadows: getGlitchShadowText(context),
              ),  
            ).showCursorOnHover.distorsionNameAppOnHover,
@@ -177,8 +177,8 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
           textAlign: TextAlign.justify,
           style: TextStyle(
             fontSize: context.isMobile ? 14.0 : 24.0,
-            color: Colors.grey[200],
-            fontWeight: FontWeight.w400,
+            color: Colors.grey[400],
+            fontWeight: FontWeight.w500,
           ),  
         ),
     );
@@ -254,7 +254,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
               'Play Store',
               style: TextStyle(
                 fontSize: context.isMobile? 16.0 : 24.0,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w400,
                 color: Colors.white,
                 fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily,
               ),
@@ -281,7 +281,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
             'Play Store',
             style: TextStyle(
               fontSize: context.isMobile? 16.0 : 24.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
               color: Colors.white,
               fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily,
             ),
@@ -332,7 +332,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
               'View Project',
               style: TextStyle(
                 fontSize: context.isMobile? 16.0 : 24.0,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w400,
                 color: Colors.white,
                 fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily,
               ),
@@ -357,7 +357,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
             'View Project',
             style: TextStyle(
               fontSize: context.isMobile? 16.0 : 24.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
               color: Colors.white,
               fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily,
             ),

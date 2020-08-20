@@ -39,7 +39,7 @@ class _MySkillWidgetState extends State<MySkillWidget> {
           style: TextStyle(
             fontSize: context.isMobile ? 80 : 160,
             letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
             color: Colors.grey[800].withOpacity(0.3)
           ),
         ),
@@ -203,8 +203,8 @@ class _MySkillWidgetState extends State<MySkillWidget> {
           fontStyle: FontStyle.italic,
           shadows: getGlitchShadowText(context),
           letterSpacing: 4.0,
-          decoration: TextDecoration.underline,
-          decorationColor: color
+          // decoration: TextDecoration.underline,
+          // decorationColor: color
         ),
       ),
     );

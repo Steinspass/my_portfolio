@@ -61,7 +61,7 @@ class _ContactMeWidgetState extends State<ContactMeWidget> {
           style: TextStyle(
             fontSize: context.isMobile ? 80 : 160,
             letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
             color: Colors.grey[800].withOpacity(0.3)
           ),
         ),

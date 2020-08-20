@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
                 fontSize: context.isMobile ? 18 : 24,
                 color: Colors.yellowAccent,
                 fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w100,
                 shadows: [
                   Shadow(
                     color: Colors.greenAccent[400],
@@ -200,10 +200,12 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
             ? MediaQuery.of(context).size.height / 1.2 
             : MediaQuery.of(context).size.height / 1.0,
             width: MediaQuery.of(context).size.width,
-            child: AnimatedBackground(
+            child: context.isMobile 
+            ? _columnMiddle()
+            : AnimatedBackground(
               behaviour: MyRacingLinesBehaviour(
                 direction: LineDirection.Ttb,
-                numLines: context.isMobile ? 15 : 250
+                numLines:  150
               ),
               vsync: this,
               child: _columnMiddle(),
@@ -246,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
             fontSize: context.isMobile ? 40 : 100,
             color: Colors.white,
             letterSpacing: context.isMobile ? -0.5 : -1.5,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             shadows: getGlitchShadowText(context)
           ),  
         ),
@@ -270,7 +272,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
             letterSpacing:context.isMobile ? 1.5 : 3.0,
             color: Colors.yellowAccent,
             fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w300,
             shadows: getGlitchShadowText(context)
         ), 
         textAlign: TextAlign.center,
@@ -328,7 +330,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
                       style: TextStyle(
                         color: Colors.black,
                         fontSize:context.isMobile ? 22.0 : 35.0,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         
                       ),
                     ),
@@ -349,7 +351,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
           style: TextStyle(
             fontSize: context.isMobile ? 60 : 160,
             letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
             color: Colors.grey[800].withOpacity(0.3)
           ),
         ),

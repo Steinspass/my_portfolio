@@ -74,7 +74,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
             color: Colors.white,
             fontSize: context.isMobile ? 35 : 70,
             fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w200,
             letterSpacing: 4.0,
             shadows: getGlitchShadowText(context)
           ),  

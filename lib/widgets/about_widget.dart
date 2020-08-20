@@ -36,7 +36,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
           style: TextStyle(
             fontSize: context.isMobile ? 80 : 160,
             letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
             color: Colors.grey[800].withOpacity(0.3)
           ),
         ),
@@ -127,7 +127,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
      final textStyle = TextStyle(
             fontSize: context.isMobile ? 14.0 : 26.0,
             color: Colors.grey[400],
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w200,
             fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily
           );
 
@@ -152,7 +152,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
     final textStyle = TextStyle(
             fontSize: context.isMobile ? 16.0 : 26.0,
             color: Colors.grey[400],
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w200,
             fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily
           );
 
