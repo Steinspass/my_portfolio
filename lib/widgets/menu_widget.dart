@@ -31,7 +31,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
             _textMenuItem(' Skills ', 3),
             _textMenuItem(' About me ', 4),
             _textMenuItem(' Contact me ', 5),
-            SizedBox(height: 40.0,)
+            SizedBox(height: 60.0,)
           ],
         ),
       ),

@@ -50,7 +50,7 @@ class _MySkillWidgetState extends State<MySkillWidget> {
   SizedBox _buildCard(BuildContext context) {
     return SizedBox(
     height: context.isMobile 
-    ? MediaQuery.of(context).size.height / 0.6
+    ? MediaQuery.of(context).size.height / 0.5
     : MediaQuery.of(context).size.height / 1.2,
     child: Neumorphic(
       margin: context.isMobile  

@@ -54,7 +54,7 @@ class _DistorsionOnHoverState extends State<DistorsionOnHover> {
         textAlign: TextAlign.center,
         alignment: AlignmentDirectional.centerStart,
           textStyle: TextStyle(
-          fontSize: context.isMobile ? 40 : 100,
+          fontSize: context.isMobile ? 36 : 100,
           color: Colors.white,
           letterSpacing: context.isMobile ? -0.5 : -1.5,
           fontWeight: FontWeight.w700,

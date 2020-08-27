@@ -245,7 +245,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
         ),  
         enableInteractiveSelection: true,
           style: TextStyle(
-            fontSize: context.isMobile ? 40 : 100,
+            fontSize: context.isMobile ? 36 : 100,
             color: Colors.white,
             letterSpacing: context.isMobile ? -0.5 : -1.5,
             fontWeight: FontWeight.w700,
@@ -314,7 +314,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
               ),
               child: GestureDetector(
                 onTap: () async {
-                  _scrollToIndex(4);
+                  _scrollToIndex(5);
                 },
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
@@ -349,7 +349,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
         child: Text(
           'Hello Im',
           style: TextStyle(
-            fontSize: context.isMobile ? 60 : 160,
+            fontSize: context.isMobile ? 50 : 160,
             letterSpacing: 2.0,
             fontWeight: FontWeight.w300,
             color: Colors.grey[800].withOpacity(0.3)

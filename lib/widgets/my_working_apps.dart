@@ -151,7 +151,7 @@ class _MyWorkingAppsState extends State<MyWorkingApps> {
           child: Image(
              image: AssetImage('images/bunkalist-cover.png'),
              height: context.isMobile 
-              ? MediaQuery.of(context).size.height / 2.0
+              ? MediaQuery.of(context).size.height / 2.2
               : MediaQuery.of(context).size.height / 2.0,
           ),
         )
