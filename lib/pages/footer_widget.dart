@@ -19,15 +19,16 @@ class _FooterWidgetState extends State<FooterWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[900].withOpacity(0.4),
+      color: Color(0xFF04042A),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(height: 20.0,),
           _rowSocialIcons(),
           _textTechUsed(
             'images/flutter-icon.png',
             'Flutter',
-            ' Build with 💙 using: ',
+            ' Build with 💙 using: \n ',
             'https://flutter.dev/'
           ),
           SizedBox(height: 20.0,),
@@ -71,7 +72,7 @@ class _FooterWidgetState extends State<FooterWidget> {
           ).showCursorOnHover.moveUpOnHover,
           SizedBox(width: 40.0,),
           IconButton(
-            icon: Icon(Icons.email), 
+            icon: Icon(MaterialIcons.email), 
             color: Colors.yellowAccent,
             tooltip: "Copy the Email",
             hoverColor: Colors.grey[400].withOpacity(0.4), 

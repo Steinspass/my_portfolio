@@ -1,17 +1,15 @@
-import 'package:animated_background/animated_background.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:my_portfolio/ui_components/particles_background.dart';
 import 'package:my_portfolio/ui_components/shadow_text.dart';
-import 'package:my_portfolio/widgets/about_widget.dart';
-import 'package:my_portfolio/widgets/contact_widget.dart';
-import 'package:my_portfolio/widgets/footer_widget.dart';
+import 'package:my_portfolio/pages/about_widget.dart';
+import 'package:my_portfolio/pages/contact_widget.dart';
+import 'package:my_portfolio/pages/footer_widget.dart';
+import 'package:my_portfolio/utils/type_screen_size.dart';
+import 'package:my_portfolio/widgets/button_neon_widget.dart';
 import 'package:my_portfolio/widgets/menu_widget.dart';
-import 'package:my_portfolio/widgets/my_working_apps.dart';
-import 'package:my_portfolio/widgets/services_widget.dart';
-import 'package:my_portfolio/widgets/skill_widget.dart';
+import 'package:my_portfolio/pages/my_working_apps.dart';
+import 'package:my_portfolio/pages/services_widget.dart';
+import 'package:my_portfolio/pages/skill_widget.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:my_portfolio/extensions/hover_extesions.dart';
@@ -28,8 +26,6 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
 
   AutoScrollController _autoScrollController;
   final scrollDirection = Axis.vertical;
-
-  bool _hovering = false;
 
   @override
   void initState() { 
@@ -61,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
       extendBodyBehindAppBar: true,
       appBar: _headerAppBar(),
       body: Material(
-        color: Colors.black,
+        color: Color(0xFF000019),
         child: Scrollbar(
           controller: _autoScrollController,
           child: SingleChildScrollView(
@@ -121,7 +117,10 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
 
   Widget _titleName() {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 4.0,
+        horizontal: 2.0
+      ),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
@@ -131,8 +130,12 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
           child: Text(
             " naimdev.tech ",
               style: TextStyle(
-                fontSize: context.isMobile ? 18 : 24,
-                color: Colors.yellowAccent,
+                fontSize: returnForTypeSize(
+                  isMobile: 18.0,
+                  isTablet: 22.0,
+                  isDesktop: 24.0
+                ),
+                color: Color(0xFFF9FF05),
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w100,
                 shadows: [
@@ -162,15 +165,15 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
   Widget _fabMenu(){
     return FloatingActionButton(
       heroTag: 'Menu',
-      hoverColor: Colors.yellowAccent,
+      hoverColor: Color(0xFFF9FF05),
       mini: context.isMobile ? true : false,
       hoverElevation: 15.0,
-      backgroundColor: Colors.yellowAccent.withOpacity(0.8),
+      backgroundColor: Color(0xFFF9FF05).withOpacity(0.8), 
       elevation: 1.0,
       tooltip: "Open Menu",
       child: Icon(
         Icons.menu,
-        color: Colors.blueGrey[900],
+        color: Color(0xFF01011F),
         size: context.isMobile ? 20.0 : 40.0,
       ),
       onPressed: () async
@@ -200,16 +203,16 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
             ? MediaQuery.of(context).size.height / 1.2 
             : MediaQuery.of(context).size.height / 1.0,
             width: MediaQuery.of(context).size.width,
-            child: context.isMobile 
-            ? _columnMiddle()
-            : AnimatedBackground(
-              behaviour: MyRacingLinesBehaviour(
-                direction: LineDirection.Ttb,
-                numLines:  150
-              ),
-              vsync: this,
-              child: _columnMiddle(),
-            ),
+            child: _columnMiddle()
+            // ? _columnMiddle()
+            // : AnimatedBackground(
+            //   behaviour: MyRacingLinesBehaviour(
+            //     direction: LineDirection.Ttb,
+            //     numLines:  150
+            //   ),
+            //   vsync: this,
+            //   child: _columnMiddle(),
+            // ),
           )
       )
     );
@@ -221,19 +224,43 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Spacer(),
+        Spacer(flex: 1,),
         _titleOffSection(),
+        SizedBox(height: 10.0,),
         _titleMyName(),
+        SizedBox(height: 20.0,),
         _subtitleDev(),
-        SizedBox(height: 25.0,),
-        _buttonContactMe(),
-        Spacer(),
+        SizedBox(height: 40.0,),
+        // _buttonContactMe(),
+        // _containerContactMe(),
+        _buttonNeonContactMe(),
+        Spacer(flex: 3,),
         // _iconArrowDown(),
       ],
     );
   }
 
  
+
+  // Widget _titleMyName() {
+  //   return Center(
+  //     child: SelectableText(
+  //       " Naim Dridi Podadera ",
+  //       toolbarOptions: ToolbarOptions(
+  //         copy: true,
+  //         selectAll: true
+  //       ),  
+  //       enableInteractiveSelection: true,
+  //         style: TextStyle(
+  //           fontSize: context.isMobile ? 36 : 100,
+  //           color: Colors.white,
+  //           letterSpacing: context.isMobile ? -0.5 : -1.5,
+  //           fontWeight: FontWeight.w700,
+  //           shadows: getGlitchShadowText(context)
+  //         ),  
+  //       ),
+  //   ).showCursorOnHover.distorsionTitleOnHover;
+  // }
 
   Widget _titleMyName() {
     return Center(
@@ -245,10 +272,14 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
         ),  
         enableInteractiveSelection: true,
           style: TextStyle(
-            fontSize: context.isMobile ? 36 : 100,
+            fontSize: returnForTypeSize(
+              isMobile: 35.0,
+              isTablet: 75.0,
+              isDesktop: 90.0
+            ),
             color: Colors.white,
             letterSpacing: context.isMobile ? -0.5 : -1.5,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w400,
             shadows: getGlitchShadowText(context)
           ),  
         ),
@@ -257,89 +288,96 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
 
   Widget _subtitleDev() {
 
+    // Freelancer Multiplaform Mobile App Developer.
 
     return SizedBox(
-      width: 1500.0,
-      child: FadeAnimatedTextKit(
-        text: [
-          " Freelancer App Mobile Developer",
-          " Self-taught Software Developer ",
-          " I create interactive experiences with modern tech.",
-          
-        ],
-        textStyle: TextStyle(
-            fontSize: context.isMobile ? 25 : 55,
+      width: 1000.0,
+      child: SelectableText(
+        " I create beautiful Mobile Apps with modern tech your users love ",
+        style: TextStyle(
+            fontSize: context.isMobile ? 20 : 40,
             letterSpacing:context.isMobile ? 1.5 : 3.0,
-            color: Colors.yellowAccent,
+            color: Color(0xFFF9FF05),
             fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w600,
             shadows: getGlitchShadowText(context)
         ), 
-        textAlign: TextAlign.center,
-        alignment: AlignmentDirectional.centerStart,
-        repeatForever: true,
-        pause: Duration(milliseconds: 1000),
-        duration: Duration(milliseconds: 1000),   
+        textAlign: TextAlign.center, 
       ),
     );
   }
 
+  // Widget _subtitleAnimatedDev() {
 
-  Widget _buttonContactMe(){
 
-    return Container(
-      width: context.isMobile
-      ? MediaQuery.of(context).size.width / 1.80
-      : MediaQuery.of(context).size.width / 2.80,
-      child: new Neumorphic(
-              margin: context.isMobile
-              ? EdgeInsets.symmetric(
-                horizontal: 1.0,
-                vertical: 1.0
-              )
-              : EdgeInsets.symmetric(
-                horizontal: 100.0,
-                vertical: 20.0
-              ),
-              style: NeumorphicStyle(
-                shadowDarkColor: Colors.yellowAccent,
-                shadowLightColor: Colors.yellowAccent,
-                shape: NeumorphicShape.convex,
-                depth: _hovering ? 20 : 5,
-                boxShape: NeumorphicBoxShape.roundRect(
-                  BorderRadius.circular(5.0)
-                ),
-                lightSource: LightSource.bottomLeft,
-                color: Colors.yellowAccent
-              ),
-              child: GestureDetector(
-                onTap: () async {
-                  _scrollToIndex(5);
-                },
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  onEnter: (e) => _mouseEnter(true),
-                  onExit: (e) => _mouseEnter(false),
-                  child: Container(
-                    margin: context.isMobile 
-                    ? EdgeInsets.all(5.0)
-                    : EdgeInsets.all(15.0),
-                    child: Text(
-                      "Contact me",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize:context.isMobile ? 22.0 : 35.0,
-                        fontWeight: FontWeight.w600,
-                        
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+  //   return SizedBox(
+  //     width: 1500.0,
+  //     child: FadeAnimatedTextKit(
+  //       text: [
+  //         " Freelancer App Mobile Developer",
+  //         " Self-taught Software Developer ",
+  //         " I create interactive experiences with modern tech.",
+          
+  //       ],
+  //       textStyle: TextStyle(
+  //           fontSize: context.isMobile ? 25 : 55,
+  //           letterSpacing:context.isMobile ? 1.5 : 3.0,
+  //           color: Colors.yellowAccent,
+  //           fontStyle: FontStyle.italic,
+  //           fontWeight: FontWeight.w300,
+  //           shadows: getGlitchShadowText(context)
+  //       ), 
+  //       textAlign: TextAlign.center,
+  //       alignment: AlignmentDirectional.centerStart,
+  //       repeatForever: true,
+  //       pause: Duration(milliseconds: 1000),
+  //       duration: Duration(milliseconds: 1000),   
+  //     ),
+  //   );
+  // }
+
+
+  Widget _buttonNeonContactMe(){
+    return ButtonNeonWidget(
+      buttonColor: Color(0xFFF9FF05),
+      shadowColor: Color(0xFFF9FF05).withOpacity(0.6),
+      title: 'Contact me',
+      onTap: () async {
+        _scrollToIndex(5);
+      },
+      padding: EdgeInsets.all(4.0),
+      titleStyle: TextStyle(
+        color: Color(0xFF1E1B1B),
+        fontSize:context.isMobile ? 22.0 : 35.0,
+        fontWeight: FontWeight.w600,            
+      ),
+      marginTitle: context.isMobile 
+        ? const EdgeInsets.all(5.0)
+        : const EdgeInsets.all(15.0),
+      widthSize: returnForTypeSize(
+        isMobile: MediaQuery.of(context).size.width / 1.60,
+        isTablet: MediaQuery.of(context).size.width / 1.80,
+        isDesktop: MediaQuery.of(context).size.width / 2.80,
+      ),
+      margin: returnForTypeSize(
+        isMobile: const EdgeInsets.symmetric(
+          horizontal: 1.0,
+          vertical: 1.0
+        ),
+        isTablet: const EdgeInsets.symmetric(
+          horizontal: 10.0,
+          vertical: 8.0
+        ),
+        isDesktop: const EdgeInsets.symmetric(
+          horizontal: 100.0,
+          vertical: 20.0
+          ),
+      ),
     );
+
   }  
+
+ 
 
   _titleOffSection() {
     return Align(
@@ -349,19 +387,15 @@ class _MyHomePageState extends State<MyHomePage>  with TickerProviderStateMixin 
         child: Text(
           'Hello Im',
           style: TextStyle(
-            fontSize: context.isMobile ? 50 : 160,
+            fontSize: context.isMobile ? 50 : 140,
             letterSpacing: 2.0,
-            fontWeight: FontWeight.w300,
-            color: Colors.grey[800].withOpacity(0.3)
+            fontWeight: FontWeight.w200,
+            color: Colors.grey[800].withOpacity(0.5)
           ),
         ),
       ),
     );
   }
 
-  void _mouseEnter(bool hovering) {
-    setState(() {
-      _hovering = hovering;
-    });
-  }
+  
 }

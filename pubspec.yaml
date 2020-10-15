@@ -68,6 +68,7 @@ flutter:
     - images/coding.png
     - images/infographic.png
     - google_fonts/
+    - images/screens_bunkalist.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

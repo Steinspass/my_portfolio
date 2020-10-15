@@ -3,7 +3,7 @@ import 'package:my_portfolio/pages/my_home_page.dart';
 import 'package:my_portfolio/theme/my_theme.dart';
 
 void main() {
-  
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 

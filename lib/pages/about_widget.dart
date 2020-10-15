@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/ui_components/shadow_text.dart';
+import 'package:my_portfolio/utils/type_screen_size.dart';
+import 'package:my_portfolio/widgets/title_section_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -19,43 +20,31 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _titleOffSection(),
+        TitleSectionWidget(title: 'About me',),
         _columnIntroAbout(),
         
       ],
     );
   }
 
-  _titleOffSection() {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 45.0, left: 20.0),
-        child: Text(
-          'About me',
-          style: TextStyle(
-            fontSize: context.isMobile ? 80 : 160,
-            letterSpacing: 2.0,
-            fontWeight: FontWeight.w300,
-            color: Colors.grey[800].withOpacity(0.3)
-          ),
-        ),
-      ),
-    );
-  }
 
 
   Widget _columnIntroAbout(){
     return Container(
-      margin: context.isMobile
-      ? EdgeInsets.symmetric(
-        horizontal: 20.0,
-        vertical: 40.0
-      )
-      : EdgeInsets.symmetric(
-        horizontal: 300.0,
-        vertical: 40.0
-      ),
+      margin: returnForTypeSize(
+        isMobile: const EdgeInsets.symmetric(
+          horizontal: 15.0,
+          vertical: 20.0
+        ),
+        isTablet: const EdgeInsets.symmetric(
+          horizontal: 30.0,
+          vertical: 40.0
+        ),
+        isDesktop: const EdgeInsets.symmetric(
+          horizontal: 160.0,
+          vertical: 100.0
+        ),
+      ), 
       child: Column(
         children: [
           _titleIntro("Introduction"),
@@ -87,7 +76,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
         title,
         style: TextStyle(
           color: Colors.grey[100],
-          fontSize: context.isMobile ? 20.0 : 35.0,
+          fontSize: returnForTypeSize(isMobile: 20, isTablet: 24, isDesktop: 34),
           fontWeight: FontWeight.w800,
           letterSpacing: 2.0,
           shadows: getGlitchShadowText(context)
@@ -122,42 +111,52 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
       📚 Patterns Designs
       🎯 Consistency
       🤖 Automation
+
+
+
     """;
 
      final textStyle = TextStyle(
-            fontSize: context.isMobile ? 14.0 : 26.0,
+            fontSize: returnForTypeSize(isMobile: 18, isTablet: 22, isDesktop: 26),
             color: Colors.grey[400],
             fontWeight: FontWeight.w200,
             fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily
           );
 
-    return Align(
-      alignment: Alignment.topCenter,
-      child: RichText(
-        textAlign: TextAlign.center,
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: infoAboutApp,
-                style: textStyle, 
-              )
-            ]
-          ),          
-        ),
+    return Container(
+      width: returnForTypeSize(
+        isMobile: MediaQuery.of(context).size.width - 30.0,
+        isTablet: MediaQuery.of(context).size.width - 50.0,
+        isDesktop: MediaQuery.of(context).size.width - 350.0, 
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: RichText(
+          textAlign: TextAlign.justify,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: infoAboutApp,
+                  style: textStyle, 
+                )
+              ]
+            ),          
+          ),
+      ),
     );
   }
 
   Widget _textTechUsed(String iconPath, String name, String desc, String link){
 
     final textStyle = TextStyle(
-            fontSize: context.isMobile ? 16.0 : 26.0,
+            fontSize: returnForTypeSize(isMobile: 18, isTablet: 22, isDesktop: 26),
             color: Colors.grey[400],
             fontWeight: FontWeight.w200,
             fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily
           );
 
     final textColorStyle = TextStyle(
-            fontSize: context.isMobile ? 16.0 : 26.0,
+            fontSize: returnForTypeSize(isMobile: 18, isTablet: 22, isDesktop: 26),
             color: Colors.yellowAccent,
             fontWeight: FontWeight.w500,
             fontFamily: GoogleFonts.josefinSansTextTheme().headline6.fontFamily,

@@ -47,17 +47,17 @@ class _DistorsionOnHoverState extends State<DistorsionOnHover> {
           " Naim Dridi Podadera "
         ],
         // speed: Duration(milliseconds: 5),
-        duration: Duration(milliseconds: 50),
-        pause: Duration(milliseconds: 10),
+        duration: Duration(milliseconds: 45),
+        pause: Duration(milliseconds: 8),
         isRepeatingAnimation: false,
         repeatForever: false,
         textAlign: TextAlign.center,
         alignment: AlignmentDirectional.centerStart,
           textStyle: TextStyle(
-          fontSize: context.isMobile ? 36 : 100,
+          fontSize: context.isMobile ? 35 : 90,
           color: Colors.white,
           letterSpacing: context.isMobile ? -0.5 : -1.5,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w400,
           shadows: _getGlitchShadowText()
         ),
         onFinished: () => _mouseEnter(false),    
@@ -69,17 +69,17 @@ class _DistorsionOnHoverState extends State<DistorsionOnHover> {
     final glitchWeb = [
       Shadow(
         color: Colors.greenAccent[400],
-        blurRadius: 10.0,
+        blurRadius: 20.0,
         offset: Offset(4.5, 4.4),
       ),
       Shadow(
         color: Colors.blueAccent[400],
-        blurRadius: 10.0,
+        blurRadius: 20.0,
         offset: Offset(-4.5, 4.4),
       ),
       Shadow(
         color: Colors.redAccent[400],
-        blurRadius: 10.0,
+        blurRadius: 20.0,
         offset: Offset(4.5, -4.4),
       ),
     ];

@@ -44,14 +44,14 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
       child: FloatingActionButton(
         heroTag: 'Menu',
         mini: context.isMobile ? true : false,
-        hoverColor: Colors.yellowAccent,
+        hoverColor: Color(0xFFF9FF05),
         hoverElevation: 15.0,
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Color(0xFFF9FF05),
         elevation: 1.0,
         tooltip: "Close Menu",
         child: Icon(
           Icons.close,
-          color: Colors.blueGrey[900],
+          color: Color(0xFF01011F),
           size: context.isMobile ? 20.0 : 40.0,
         ),
         onPressed: (){
